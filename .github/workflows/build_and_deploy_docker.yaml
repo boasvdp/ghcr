@@ -1,6 +1,6 @@
 # This workflow is based on part of the staphb workflow at https://github.com/StaPH-B/docker-builds/blob/master/.github/workflows/build-to-deploy.yml
 
-name: Build and deploy image
+name: Docker - build and deploy image
 
 on:
   workflow_dispatch:

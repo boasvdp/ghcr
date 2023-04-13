@@ -41,14 +41,14 @@ jobs:
 
       - name: build from def
         run: |
-          sudo -E singularity build ${{ input.IMAGE_NAME }}.sif ${{ input.path_to_context }}/${{ input.def }}
-          echo "tag=${{ input.version }}" >> $GITHUB_ENV
+          sudo -E singularity build ${{ inputs.IMAGE_NAME }}.sif ${{ inputs.path_to_context }}/${{ inputs.def }}
+          echo "tag=${{ inputs.version }}" >> $GITHUB_ENV
 
       - name: push sif to ghcr
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | singularity remote login -u ${{ github.actor }} --password-stdin oras://ghcr.io
-          singularity push ${{ input.IMAGE_NAME }}.sif oras://ghcr.io/${{ inputs.repository_name}}/${{ inputs.IMAGE_NAME }}:${tag}
+          singularity push ${{ inputs.IMAGE_NAME }}.sif oras://ghcr.io/${{ inputs.repository_name}}/${{ inputs.IMAGE_NAME }}:${tag}
 
       - name: Image digest
         run: |
-          sha256sum ${{ input.IMAGE_NAME }}.sif
+          sha256sum ${{ inputs.IMAGE_NAME }}.sif
