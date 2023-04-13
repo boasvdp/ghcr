@@ -41,7 +41,7 @@ jobs:
 
       - name: build from def
         run: |
-          sudo -E singularity build ${{ inputs.IMAGE_NAME }}.sif ${{ inputs.path_to_context }}/${{ inputs.def }}
+          singularity build --fakeroot ${{ inputs.IMAGE_NAME }}.sif ${{ inputs.path_to_context }}/${{ inputs.def }}
           echo "tag=${{ inputs.version }}" >> $GITHUB_ENV
 
       - name: push sif to ghcr
