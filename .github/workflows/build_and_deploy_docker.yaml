@@ -19,10 +19,6 @@ on:
         required: false
         default: latest
         type: string
-      push_latest_tag:
-        default: true
-        required: false
-        type: boolean
 
 jobs:
 
