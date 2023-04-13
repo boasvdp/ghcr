@@ -12,6 +12,10 @@ on:
         default: Dockerfile
         required: false
         type: string
+      repository_name:
+        default: boasvdp
+        required: false
+        type: string
       IMAGE_NAME:
         required: true
         type: string
@@ -41,10 +45,10 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ inputs.IMAGE_NAME }}
+            ghcr.io/${{ inputs.repository_name}}/${{ inputs.IMAGE_NAME }}
           tags: |
             ${{ inputs.version }}
 
@@ -57,7 +61,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: | 
-            ghcr.io/${{ inputs.IMAGE_NAME }}:${{ inputs.version }}
+            ${{ steps.meta.outputs.tags }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
