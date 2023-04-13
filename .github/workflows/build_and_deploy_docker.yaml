@@ -57,7 +57,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: | 
-            ${{ inputs.version }}
+            ghcr.io/${{ inputs.IMAGE_NAME }}:${{ inputs.version }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
