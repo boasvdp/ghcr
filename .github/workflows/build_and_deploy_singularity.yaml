@@ -1,0 +1,54 @@
+# This workflow is based on part of the staphb workflow at https://github.com/StaPH-B/docker-builds/blob/master/.github/workflows/build-to-deploy.yml
+# as well as https://github.com/singularityhub/github-ci/blob/master/.github/workflows/manual-deploy.yml
+
+name: Singularity - build and deploy image
+
+on:
+  workflow_dispatch:
+    inputs:
+      path_to_context:
+        required: true
+        type: string
+      def:
+        default: singularity.def
+        required: false
+        type: string
+      repository_name:
+        default: boasvdp
+        required: false
+        type: string
+      IMAGE_NAME:
+        required: true
+        type: string
+      version:
+        required: false
+        default: latest
+        type: string
+
+jobs:
+
+  build:
+    runs-on: ubuntu-20.04
+    container:
+      image: quay.io/singularity/singularity:v3.8.3
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v3
+
+      - name: build from def
+        run: |
+          sudo -E singularity build ${{ input.IMAGE_NAME }}.sif ${{ input.path_to_context }}/${{ input.def }}
+          echo "tag=${{ input.version }}" >> $GITHUB_ENV
+
+      - name: push sif to ghcr
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | singularity remote login -u ${{ github.actor }} --password-stdin oras://ghcr.io
+          singularity push ${{ input.IMAGE_NAME }}.sif oras://ghcr.io/${{ inputs.repository_name}}/${{ inputs.IMAGE_NAME }}:${tag}
+
+      - name: Image digest
+        run: |
+          sha256sum ${{ input.IMAGE_NAME }}.sif
