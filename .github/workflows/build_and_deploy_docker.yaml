@@ -50,7 +50,7 @@ jobs:
           images: |
             ${{ inputs.IMAGE_NAME }}
           tags: |
-            type=semver,pattern=${{ inputs.version }}
+            ${{ inputs.version }}
 
       - name: Build and push to ghcr.io
         id: docker_build
@@ -61,7 +61,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: | 
-            ${{ steps.meta.outputs.tags }}
+            ${{ inputs.version }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
