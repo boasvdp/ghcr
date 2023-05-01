@@ -8,5 +8,5 @@ LABEL description="Mass screening of contigs for AMR or virulence genes"
 LABEL website="https://github.com/tseemann/abricate"
 LABEL license="https://github.com/tseemann/abricate/blob/master/LICENSE"
 
-COPY environment.yml .
+COPY abricate/environment.yml .
 RUN /bin/bash -c "mamba env update -n base -f environment.yml"

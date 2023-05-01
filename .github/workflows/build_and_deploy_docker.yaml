@@ -12,7 +12,7 @@ on:
         default: Dockerfile
         required: false
         type: string
-      repository_name:
+      ghcr_repository_name:
         default: boasvdp
         required: false
         type: string
