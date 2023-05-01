@@ -1,0 +1,12 @@
+FROM condaforge/mambaforge
+
+LABEL base.image="ubuntu:mambaforge"
+LABEL dockerfile.version="1"
+LABEL software="Abricate"
+LABEL software.version="1.0.0"
+LABEL description="Mass screening of contigs for AMR or virulence genes"
+LABEL website="https://github.com/tseemann/abricate"
+LABEL license="https://github.com/tseemann/abricate/blob/master/LICENSE"
+
+COPY environment.yml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yml"
