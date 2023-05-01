@@ -48,7 +48,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ inputs.repository_name}}/${{ inputs.IMAGE_NAME }}
+            ghcr.io/${{ inputs.ghcr_repository_name}}/${{ inputs.IMAGE_NAME }}
           tags: |
             ${{ inputs.version }}
 
