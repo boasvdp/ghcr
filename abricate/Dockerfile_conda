@@ -13,5 +13,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN tree
 
-COPY abricate/environment.yaml .
+COPY environment.yaml .
 RUN /bin/bash -c "mamba env update -n base -f environment.yml"
