@@ -1,0 +1,15 @@
+FROM condaforge/mambaforge
+
+LABEL base.image="ubuntu:mambaforge"
+LABEL dockerfile.version="1"
+LABEL software="Seqtk and mash"
+LABEL software.version="1.4 and 2.3"
+LABEL description="Software to subsample fastq data based on estimated genome size"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  tree
+
+RUN tree -L 3
+
+COPY environment.yaml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yaml"
