@@ -1,9 +1,12 @@
-FROM python:3.7
+FROM python:3.7.17-bookworm
 
-LABEL base.image="ubuntu:mambaforge"
+LABEL base.image="docker-python"
 LABEL dockerfile.version="1"
 LABEL software="fast-lineage-caller"
 LABEL software.version="0.3.1"
 LABEL description="Software to identify Mtb lineage"
+
+echo "Checking pip"
+python -m pip --version
 
 pip install fast-lineage-caller
