@@ -1,0 +1,6 @@
+channels:
+- ejfresch
+- bioconda
+- conda-forge
+dependencies:
+- fast-lineage-caller=0.3.1
