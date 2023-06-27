@@ -6,7 +6,6 @@ LABEL software="fast-lineage-caller"
 LABEL software.version="0.3.1"
 LABEL description="Software to identify Mtb lineage"
 
-echo "Checking pip"
 python -m pip --version
 
 pip install fast-lineage-caller
