@@ -1,0 +1,17 @@
+FROM condaforge/mambaforge
+
+LABEL base.image="ubuntu:mambaforge"
+LABEL dockerfile.version="1"
+LABEL software="Referenceseeker"
+LABEL software.version="1.8"
+LABEL description="ReferenceSeeker: rapid determination of appropriate reference genomes"
+LABEL website="https://github.com/oschwengers/referenceseeker"
+LABEL license="https://github.com/oschwengers/referenceseeker/blob/main/LICENSE"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  tree
+
+RUN tree -L 3
+
+COPY environment.yaml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yaml"

@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - pip
+  - python=3.*
+  - pandas=1.*
+  - referenceseeker==1.8.0
+  - pyyaml
+  - ncbi-datasets-pylib
