@@ -1,0 +1,9 @@
+channels:
+- conda-forge
+- nodefaults
+dependencies:
+- networkx
+- pandas
+- matplotlib-base
+- pyyaml
+- python==3.9

@@ -13,5 +13,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN tree -L 3
 
-COPY environment.yaml .
-RUN /bin/bash -c "mamba env update -n base -f environment.yaml"
+COPY environment.yml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yml"
