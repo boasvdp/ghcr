@@ -4,4 +4,4 @@ LABEL base.image="rust:1.77"
 LABEL dockerfile.version="0"
 LABEL software="distle"
 
-RUN git clone git@github.com:KHajji/distle.git && cd distle && cargo build --release
+RUN git clone --depth 1 https://github.com/KHajji/distle.git && cd distle && cargo build --release
