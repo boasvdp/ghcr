@@ -1,4 +1,4 @@
-FROM mambaorg/micromamba:1.5.8-lunar
+FROM condaforge/mambaforge
 
 LABEL dockerfile.version="1"
 LABEL software="skiml-cluster"
@@ -14,6 +14,5 @@ LABEL software="skiml-cluster"
 
 # RUN pip install skiml-cluster
 
-COPY environment.yml .
-
-RUN micromamba install -y -n base -f environment.yml
+COPY environment.yaml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yaml"
