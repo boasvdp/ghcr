@@ -14,5 +14,5 @@ LABEL software="skiml-cluster"
 
 # RUN pip install skiml-cluster
 
-COPY environment.yaml .
-RUN /bin/bash -c "mamba env update -n base -f environment.yaml"
+COPY environment.yml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yml"
