@@ -1,0 +1,14 @@
+FROM condaforge/mambaforge
+
+LABEL base.image="ubuntu:mambaforge"
+LABEL dockerfile.version="1"
+LABEL software="Python script"
+LABEL description="Python scripts and utils for Juno-clustering"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  tree
+
+RUN tree -L 3
+
+COPY environment.yml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yml"
