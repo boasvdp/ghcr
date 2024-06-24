@@ -2,8 +2,7 @@ channels:
 - conda-forge
 - nodefaults
 dependencies:
-- networkx
-- pandas
+- pandas=2.2.*
+- networkx=3.3
 - matplotlib-base
 - pyyaml
-- python==3.9
