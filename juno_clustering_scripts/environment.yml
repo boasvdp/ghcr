@@ -4,4 +4,5 @@ channels:
 - nodefaults
 dependencies:
 - pandas=2.2.*
-- pigz
+- pigz=2.8
+- pyfastx=2.1.*
