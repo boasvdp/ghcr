@@ -3,6 +3,3 @@ channels:
 - bioconda
 dependencies:
 - pysam==0.15.2
-- python==3.8
-- openssl==1.1.1w
-- curl==7.87.0
