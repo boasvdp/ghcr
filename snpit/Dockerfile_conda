@@ -7,12 +7,29 @@ LABEL software.version="1.0.0"
 LABEL description="SNP-it for MTB lineage classification"
 LABEL website="https://github.com/philipwfowler/snpit"
 
-RUN apt-get update
-RUN apt-get install -y build-essential autoconf wget git autoconf zlib1g-dev libbz2-dev liblzma-dev libncurses-dev
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    wget \
+    ca-certificates \
+    make \
+    bzip2 \
+    autoconf \
+    automake \
+    make \
+    gcc \
+    perl \
+    zlib1g-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libcurl4-gnutls-dev \
+    libssl-dev \
+    procps && \
+    rm -rf /var/lib/apt/lists/* && apt-get autoclean
+
 COPY environment.yml .
 RUN /bin/bash -c "mamba env update -n pipeline_env -f environment.yml" && \
   echo "source activate pipeline_env" >> ~/.bashrc && \
   /bin/bash -c "source activate pipeline_env"
+
 RUN git clone https://github.com/philipwfowler/snpit.git && \
   cd snpit && \
   python3 setup.py install
