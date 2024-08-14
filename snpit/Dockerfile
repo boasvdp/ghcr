@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     automake \
     make \
     gcc \
+    git \
     perl \
     zlib1g-dev \
     libbz2-dev \
