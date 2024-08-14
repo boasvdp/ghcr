@@ -1,0 +1,14 @@
+FROM condaforge/mambaforge
+
+LABEL base.image="ubuntu:mambaforge"
+LABEL dockerfile.version="1"
+LABEL software="SNP-it"
+LABEL software.version="1.0.0"
+LABEL description="SNP-it for MTB lineage classification"
+LABEL website="https://github.com/philipwfowler/snpit"
+
+COPY environment.yml .
+RUN /bin/bash -c "mamba env update -n base -f environment.yml"
+RUN git clone git@github.com:philipwfowler/snpit.git && \
+  cd snpit && \
+  python3 setup.py install
