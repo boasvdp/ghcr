@@ -1,4 +1,4 @@
-from python/3.8.19-slim
+from python:3.8.19-slim
 
 LABEL base.image="python/3.8.19-slim"
 LABEL dockerfile.version="1"
