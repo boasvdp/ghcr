@@ -3,3 +3,4 @@ channels:
 - bioconda
 dependencies:
 - pysam==0.15.2
+- python==3.8
