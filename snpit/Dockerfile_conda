@@ -7,6 +7,8 @@ LABEL software.version="1.0.0"
 LABEL description="SNP-it for MTB lineage classification"
 LABEL website="https://github.com/philipwfowler/snpit"
 
+RUN apt-get update
+RUN apt-get install -y build-essential autoconf wget git
 COPY environment.yml .
 RUN /bin/bash -c "mamba env update -n pipeline_env -f environment.yml" && \
   echo "source activate pipeline_env" >> ~/.bashrc && \
