@@ -4,3 +4,6 @@ channels:
 dependencies:
 - pysam==0.15.2
 - python==3.8
+- openssl==1.1.1w
+- python_abi==3.8==2_cp38
+- curl==7.87.0
