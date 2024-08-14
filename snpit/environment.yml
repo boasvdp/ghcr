@@ -4,4 +4,4 @@ channels:
 dependencies:
 - pysam==0.15.2
 - python==3.8
-- setuptools==57
+- setuptools==57.4.0
