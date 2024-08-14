@@ -11,6 +11,6 @@ COPY environment.yml .
 RUN /bin/bash -c "mamba env update -n pipeline_env -f environment.yml" && \
   echo "source activate pipeline_env" >> ~/.bashrc && \
   /bin/bash -c "source activate pipeline_env"
-RUN git clone git@github.com:philipwfowler/snpit.git && \
+RUN git clone https://github.com/philipwfowler/snpit.git && \
   cd snpit && \
   python3 setup.py install
