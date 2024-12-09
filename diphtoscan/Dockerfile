@@ -19,6 +19,6 @@ RUN mamba install \
 
 RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git && \
     cd diphtoscan && \
-    sudo ln -s __main__.py /usr/bin/diphtoscan && \
+    ln -s __main__.py /usr/bin/diphtoscan && \
     chmod -R 777 /usr/bin/diphtoscan && \
     diphtoscan --help
