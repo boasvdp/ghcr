@@ -16,7 +16,7 @@ RUN tree -L 3 /
 
 RUN tree -L 3
 
-RUN mamba install -c conda-forge -c bioconda python==3.8.* mash==2.3 blast==2.13.*  ncbi-amrfinderplus==3.12.8 hmmer
+RUN mamba install -c conda-forge -c bioconda python<3.12 mash==2.3 blast==2.*  ncbi-amrfinderplus==3.12.8 hmmer
 
 RUN tree -L 3
 
