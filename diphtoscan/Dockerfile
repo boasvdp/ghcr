@@ -21,5 +21,5 @@ RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git && \
     cd diphtoscan && \
     chmod -R 777 . && \
     ln -s __main__.py diphtoscan && \
-    export PATH="${PATH}:$(pwd)"
+    export PATH="${PATH}:$(pwd)" && \
     diphtoscan --help
