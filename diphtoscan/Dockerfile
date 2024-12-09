@@ -14,7 +14,7 @@ RUN mamba install \
     blast==2.16.0 \
     ncbi-amrfinderplus==3.12.8 \
     hmmer==3.4 \
-    pandas==2.23 \
+    pandas==2.2.3 \
     biopython==1.84
 
 RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git && \
