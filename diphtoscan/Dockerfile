@@ -20,4 +20,4 @@ RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git && \
 
 RUN tree -L 3
 
-RUN python diphtoscan/diphtoscan.py --help
+RUN python diphtoscan/__main__.py --help
