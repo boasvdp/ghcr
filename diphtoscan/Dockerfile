@@ -12,20 +12,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pwd
 
-RUN tree -L 3 /
-
-RUN tree -L 3
-
 RUN mamba install -c conda-forge -c bioconda 'python<3.12' mash==2.3 blast==2.*  ncbi-amrfinderplus==3.12.8 hmmer
 
-RUN tree -L 3
-
-RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git
-
-RUN tree -L 3
-
-RUN chmod -R 777 diphtoscan/
-RUN ln -s diphtoscan/__main__.py diphtoscan/diphtoscan.py
+RUN git clone https://gitlab.pasteur.fr/BEBP/diphtoscan.git && \
+    chmod -R 777 diphtoscan/ && \
+    ln -s diphtoscan/__main__.py diphtoscan/diphtoscan.py
 
 RUN tree -L 3
 
+RUN python diphtoscan/diphtoscan.py --help
