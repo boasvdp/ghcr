@@ -6,6 +6,6 @@ dependencies:
   - pip
   - python=3.*
   - pandas=1.*
-  - referenceseeker==1.8.0
+  - referenceseeker==1.8.*
   - pyyaml
-  - ncbi-datasets-pylib
+  - ncbi-datasets-pyclient==18.16.*
